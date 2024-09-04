@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Login = () => {
     return (
         <div className='w-full px-6'>
-            <div className='my-16 font-poppins w-full md:w-2/3 lg:w-1/3 mx-auto border-l-4 md:border border-[#094074] p-3 md:p-9 md:rounded-lg space-y-4'>
+            <div className='my-16 font-poppins w-full md:w-2/3 lg:w-1/3 mx-auto border-l-4 md:border border-[#094074] pl-3 md:p-9 md:rounded-lg space-y-4'>
                 <form className='space-y-4 w-full'>
                     <input className='py-2 px-3 bg-[#094074] bg-opacity-10 border w-full outline-none focus:border-[#094074] placeholder:text-[#094074] placeholder:opacity-80 text-[#094074]' type="email" placeholder='Enter email' />
                     <div className='w-full'>
@@ -24,6 +24,7 @@ const Login = () => {
                     <span className='text-xl'><FcGoogle /></span>
                     <span>Google</span>
                 </button>
+                <p className='text-[#094074]'>New here? <Link to={'/register'} className='underline'>Register</Link></p>
             </div>
         </div>
     );
