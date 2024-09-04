@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <div className='bg-[#094074] text-white p-6 md:p-9 lg:p-16 font-poppins flex flex-col lg:flex-row justify-between gap-9'>
+        <div className='bg-[#094074] text-white p-6 md:p-9 lg:p-16 font-poppins flex flex-col md:flex-row lg:flex-row justify-between gap-9'>
             {/* footer 1 */}
             <div className='space-y-4'>
                 <h2 className='font-kanit text-2xl'>FluidFix</h2>
