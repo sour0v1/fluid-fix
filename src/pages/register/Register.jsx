@@ -1,9 +1,22 @@
 import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
-    const [as, setAs] = useState('user')
+    const [as, setAs] = useState('user');
+    // react hook form
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors },
+    } = useForm();
+
+    const onSubmit = (data) => {
+        console.log(data)
+    }
+    console.log(errors)
     return (
         <div className='w-full px-6 text-[#094074] '>
             <div className='my-16 font-poppins w-full md:w-2/3 lg:w-1/3 mx-auto border-l-4 md:border border-[#094074] pl-3 md:p-9 md:rounded-lg space-y-4'>
@@ -19,26 +32,28 @@ const Register = () => {
 
                 </div>
                 <hr className=' border-t border-[#094074]' />
-                <form className='space-y-4 w-full'>
+                <form onSubmit={handleSubmit(onSubmit)} className='space-y-4 w-full'>
                     <div className='w-full space-y-1'>
                         <span className="after:content-['*'] after:ml-0.5 after:text-red-500">Full Name</span>
-                        <input className='py-2 px-3 bg-[#094074] bg-opacity-10 border w-full outline-none focus:border-[#094074] placeholder:text-[#094074] placeholder:opacity-80 text-[#094074]' type="text" placeholder='Enter full name' />
+                        <input {...register('name', {required : true})} className={`py-2 px-3 bg-[#094074] bg-opacity-10 border w-full outline-none focus:border-[#094074] placeholder:text-[#094074] placeholder:opacity-80 text-[#094074] ${errors.name && 'focus:border-red-500'}`} type="text" placeholder='Enter full name' />
                     </div>
                     <div className='w-full space-y-1'>
-                        <span className="after:content-['*'] after:ml-0.5 after:text-red-500">Address</span>
-                        <input className='py-2 px-3 bg-[#094074] bg-opacity-10 border w-full outline-none focus:border-[#094074] placeholder:text-[#094074] placeholder:opacity-80 text-[#094074]' type="text" placeholder='Enter your address' />
+                        <span>Address</span>
+                        <input  className='py-2 px-3 bg-[#094074] bg-opacity-10 border w-full outline-none focus:border-[#094074] placeholder:text-[#094074] placeholder:opacity-80 text-[#094074]' type="text" placeholder='Enter your address' />
                     </div>
                     <div className='w-full space-y-1'>
                         <span className="after:content-['*'] after:ml-0.5 after:text-red-500">Contact No</span>
-                        <input className='py-2 px-3 bg-[#094074] bg-opacity-10 border w-full outline-none focus:border-[#094074] placeholder:text-[#094074] placeholder:opacity-80 text-[#094074]' type="number" placeholder='Enter contact number' />
+                        <input {...register('phone', {required : true})} className={`py-2 px-3 bg-[#094074] bg-opacity-10 border w-full outline-none focus:border-[#094074] placeholder:text-[#094074] placeholder:opacity-80 text-[#094074]' type="number" placeholder='Enter contact number ${errors.phone && 'focus:border-red-500'}`} />
                     </div>
                     <div className='w-full space-y-1'>
                         <span className="after:content-['*'] after:ml-0.5 after:text-red-500">Email</span>
-                        <input className='py-2 px-3 bg-[#094074] bg-opacity-10 border w-full outline-none focus:border-[#094074] placeholder:text-[#094074] placeholder:opacity-80 text-[#094074]' type="email" placeholder='Enter email' />
+                        <input {...register('email', {required : true, pattern : /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/})} className={`py-2 px-3 bg-[#094074] bg-opacity-10 border w-full outline-none focus:border-[#094074] placeholder:text-[#094074] placeholder:opacity-80 text-[#094074] ${errors.email && 'focus:border-red-500'}`} type="text" placeholder='Enter email' />
+                        <span className='text-red-600 mt-1 inline-block'>{errors.email?.type === 'pattern' && 'Enter valid email'}</span>
                     </div>
                     <div className='w-full space-y-1'>
                         <span className="after:content-['*'] after:ml-0.5 after:text-red-500">Password</span>
-                        <input className='py-2 px-3 bg-[#094074] bg-opacity-10 border w-full outline-none focus:border-[#094074] placeholder:text-[#094074] placeholder:opacity-80 text-[#094074]' type="password" placeholder='Enter password' />
+                        <input {...register('password', { required : true, minLength : 6})} className={`py-2 px-3 bg-[#094074] bg-opacity-10 border w-full outline-none focus:border-[#094074] placeholder:text-[#094074] placeholder:opacity-80 text-[#094074] ${errors.password && 'focus:border-red-500'}`} type="password" placeholder='Enter password' />
+                        <span className='text-red-600 mt-1 inline-block'>{errors.password?.type === 'minLength' && 'Password must be at least 6 character'}</span>
                     </div>
                     <input className='bg-[#094074] py-2 text-white w-full hover:bg-opacity-90' type="submit" value={'Register'} />
                 </form>
