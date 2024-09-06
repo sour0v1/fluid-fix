@@ -13,3 +13,7 @@
 .hover-underline:hover::after {
     width: 100%;
 }
+
+#menu .active{
+    opacity: 0.5;
+}

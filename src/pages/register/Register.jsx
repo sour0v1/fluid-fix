@@ -9,11 +9,11 @@ const Register = () => {
             <div className='my-16 font-poppins w-full md:w-2/3 lg:w-1/3 mx-auto border-l-4 md:border border-[#094074] pl-3 md:p-9 md:rounded-lg space-y-4'>
                 <div className='space-y-4'>
                     <div className='flex justify-start items-center gap-2'>
-                        <button onClick={() => setAs('user')} className={`p-3 bg-gray-200 hover:bg-gray-300 rounded-full  ${as === 'user' && 'border-8 border-[#094074] p-1  hover:bg-gray-200'}`}></button>
+                        <button onClick={() => setAs('user')} className={`bg-gray-200 hover:bg-gray-300 rounded-full  ${as === 'user' ? 'border-8 border-[#094074] p-1 hover:bg-gray-200' : 'p-3'}`}></button>
                         <span>Register as a <b>User</b></span>
                     </div>
                     <div className='flex justify-start items-center gap-2'>
-                        <button onClick={() => setAs('seller')} className={`p-3 bg-gray-200 hover:bg-gray-300 rounded-full  ${as !== 'user' && 'border-8 border-[#094074] p-1 hover:bg-gray-200'}`}></button>
+                        <button onClick={() => setAs('seller')} className={`bg-gray-200 hover:bg-gray-300 rounded-full  ${as === 'seller' ? 'border-8 border-[#094074] hover:bg-gray-200 p-1' : 'p-3'}`}></button>
                         <span>Register as a <b>Seller</b></span>
                     </div>
 
@@ -51,7 +51,7 @@ const Register = () => {
                     <span className='text-xl'><FcGoogle /></span>
                     <span>Google</span>
                 </button>
-                <p className='text-[#094074]'>Already registered? <Link to={'/register'} className='underline'>Log in</Link></p>
+                <p className='text-[#094074]'>Already registered? <Link to={'/login'} className='underline'>Log in</Link></p>
             </div>
         </div>
     );
