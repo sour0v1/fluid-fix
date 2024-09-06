@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FcGoogle } from 'react-icons/fc';
+import { IoEyeOffOutline, IoEyeOutline } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
     const [as, setAs] = useState('user');
+    const [eye, setEye] = useState(false);
     // react hook form
     const {
         register,
@@ -50,10 +52,14 @@ const Register = () => {
                         <input {...register('email', {required : true, pattern : /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/})} className={`py-2 px-3 bg-[#094074] bg-opacity-10 border w-full outline-none focus:border-[#094074] placeholder:text-[#094074] placeholder:opacity-80 text-[#094074] ${errors.email && 'focus:border-red-500'}`} type="text" placeholder='Enter email' />
                         <span className='text-red-600 mt-1 inline-block'>{errors.email?.type === 'pattern' && 'Enter valid email'}</span>
                     </div>
-                    <div className='w-full space-y-1'>
+                    <div className='w-full space-y-1 relative'>
                         <span className="after:content-['*'] after:ml-0.5 after:text-red-500">Password</span>
-                        <input {...register('password', { required : true, minLength : 6})} className={`py-2 px-3 bg-[#094074] bg-opacity-10 border w-full outline-none focus:border-[#094074] placeholder:text-[#094074] placeholder:opacity-80 text-[#094074] ${errors.password && 'focus:border-red-500'}`} type="password" placeholder='Enter password' />
+                        <input {...register('password', { required : true, minLength : 6})} className={`py-2 px-3 bg-[#094074] bg-opacity-10 border w-full outline-none focus:border-[#094074] placeholder:text-[#094074] placeholder:opacity-80 text-[#094074] ${errors.password && 'focus:border-red-500'}`} type={eye ? 'text' : 'password'} placeholder='Enter password' />
                         <span className='text-red-600 mt-1 inline-block'>{errors.password?.type === 'minLength' && 'Password must be at least 6 character'}</span>
+
+                        {eye ? 
+                        <span onClick={() => setEye(!eye)} className='absolute right-0 text-[#094074] inline-block px-3 py-3'><IoEyeOutline /></span> :
+                        <span onClick={() => setEye(!eye)} className='absolute right-0 text-[#094074] inline-block px-3 py-3'><IoEyeOffOutline /></span>}
                     </div>
                     <input className='bg-[#094074] py-2 text-white w-full hover:bg-opacity-90' type="submit" value={'Register'} />
                 </form>
