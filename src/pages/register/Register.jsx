@@ -16,7 +16,7 @@ const Register = () => {
     } = useForm();
 
     const onSubmit = (data) => {
-        console.log(data)
+        console.log(data);
     }
     console.log(errors)
     return (
@@ -41,7 +41,7 @@ const Register = () => {
                     </div>
                     <div className='w-full space-y-1'>
                         <span>Address</span>
-                        <input  className='py-2 px-3 bg-[#094074] bg-opacity-10 border w-full outline-none focus:border-[#094074] placeholder:text-[#094074] placeholder:opacity-80 text-[#094074]' type="text" placeholder='Enter your address' />
+                        <input {...register('address')}  className='py-2 px-3 bg-[#094074] bg-opacity-10 border w-full outline-none focus:border-[#094074] placeholder:text-[#094074] placeholder:opacity-80 text-[#094074]' type="text" placeholder='Enter your address' />
                     </div>
                     <div className='w-full space-y-1'>
                         <span className="after:content-['*'] after:ml-0.5 after:text-red-500">Contact No</span>

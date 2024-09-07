@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaGoogle } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import { IoEyeOffOutline, IoEyeOutline } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
+import { AppContext } from '../../provider/Provider';
 
 const Login = () => {
     const [eye, setEye] = useState(false);
+    const {user} = useContext(AppContext);
+    console.log(user);
     // react hook form
     const {
         register,
