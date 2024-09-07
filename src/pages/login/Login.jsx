@@ -8,7 +8,8 @@ import { AppContext } from '../../provider/Provider';
 
 const Login = () => {
     const [eye, setEye] = useState(false);
-    const {user} = useContext(AppContext);
+    const {user, signInWithEmailPass, handleGoogleSignIn} = useContext(AppContext);
+    const [logInError, setLogInError] = useState(null);
     console.log(user);
     // react hook form
     const {
@@ -20,11 +21,29 @@ const Login = () => {
 
       const onSubmit = (data) => {
         console.log(data);
+        const email = data.email;
+        const password = data.password;
+
+        signInWithEmailPass(email, password)
+        .then((result) => {
+            console.log(result.user);
+            setLogInError(null);
+        })
+        .catch((error) => {
+            console.log(error.message);
+            if(error?.message.includes('auth/invalid-credential')){
+               return setLogInError('Wrong Email or Password!');
+            }
+            setLogInError('Something went wrong! Please try again later.')
+        })
       }
     return (
         <div className='w-full px-6'>
             <div className='my-16 font-poppins w-full md:w-2/3 lg:w-1/3 mx-auto border-l-4 md:border border-[#094074] pl-3 md:p-9 md:rounded-lg space-y-4'>
                 <form onSubmit={handleSubmit(onSubmit)} className='space-y-4 w-full'>
+                    {
+                        logInError && <p className='text-red-600'>{logInError}</p>
+                    }
                     <input {...register('email', {required : true})} className={`py-2 px-3 bg-[#094074] bg-opacity-10 border w-full outline-none focus:border-[#094074] placeholder:text-[#094074] placeholder:opacity-80 text-[#094074] ${errors.email && 'focus:border-red-500'}`} type="text" placeholder='Enter email' />
                     <div className='w-full relative flex justify-center items-center'>
                         <input {...register('password', {required : true})} className={`py-2 px-3 bg-[#094074] bg-opacity-10 border w-full outline-none focus:border-[#094074] placeholder:text-[#094074] placeholder:opacity-80 text-[#094074] ${errors.password && 'focus:border-red-500'}`} type={eye ? 'text' : 'password'} placeholder='Enter password' />
@@ -42,7 +61,7 @@ const Login = () => {
                     <span className="mx-4">Or</span>
                     <div className="flex-grow border-t border-[#094074]"></div>
                 </div>
-                <button className='flex justify-center items-center gap-6 border border-[#094074] py-2 w-full text-[#094074] font-medium bg-[#094074] bg-opacity-10'>
+                <button onClick={handleGoogleSignIn} className='flex justify-center items-center gap-6 border border-[#094074] py-2 w-full text-[#094074] font-medium bg-[#094074] bg-opacity-10'>
                     <span className='text-xl'><FcGoogle /></span>
                     <span>Google</span>
                 </button>

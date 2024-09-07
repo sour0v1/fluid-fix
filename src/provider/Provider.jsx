@@ -18,6 +18,17 @@ const Provider = ({children}) => {
     const createUserByGoogle = () => {
         return signInWithPopup(auth, googleProvider);
     }
+    // sign in with google
+    const handleGoogleSignIn = () => {
+        createUserByGoogle()
+            .then((result) => {
+                console.log(result.user);
+            })
+            .catch((error) => {
+                console.log(error.message);
+            })
+
+    }
 
     // sign in with email and password
     const signInWithEmailPass = (email, pass) => {
@@ -27,7 +38,7 @@ const Provider = ({children}) => {
     const value = {
         user,
         createUserByEmailPass,
-        createUserByGoogle,
+        handleGoogleSignIn,
         signInWithEmailPass,
     }
     return (
