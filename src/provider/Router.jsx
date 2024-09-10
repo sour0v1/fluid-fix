@@ -5,6 +5,7 @@ import Home from '../pages/home/Home';
 import Login from '../pages/login/Login';
 import Register from '../pages/register/Register';
 import Dashboard from '../dashboard/Dashboard';
+import ProfileInfo from '../dashboard/seller/ProfileInfo';
 
 const router = createBrowserRouter([
     {
@@ -25,7 +26,13 @@ const router = createBrowserRouter([
             },
             {
                 path : '/dashboard',
-                element : <Dashboard></Dashboard>
+                element : <Dashboard></Dashboard>,
+                children : [
+                    {
+                        path : 'seller/profile-info',
+                        element : <ProfileInfo></ProfileInfo>
+                    }
+                ]
             }
         ]
 
