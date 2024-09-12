@@ -6,6 +6,7 @@ import Login from '../pages/login/Login';
 import Register from '../pages/register/Register';
 import Dashboard from '../dashboard/Dashboard';
 import ProfileInfo from '../dashboard/seller/ProfileInfo';
+import AddService from '../dashboard/seller/AddService';
 
 const router = createBrowserRouter([
     {
@@ -31,7 +32,11 @@ const router = createBrowserRouter([
                     {
                         path : 'seller/profile-info',
                         element : <ProfileInfo></ProfileInfo>
-                    }
+                    },
+                    {
+                        path : 'seller/add-service',
+                        element : <AddService></AddService>
+                    },
                 ]
             }
         ]

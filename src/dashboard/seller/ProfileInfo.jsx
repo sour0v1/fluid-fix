@@ -69,7 +69,11 @@ const ProfileInfo = () => {
                     </div>
                     <div className='flex flex-col gap-1'>
                         <span>Country</span>
-                        <Select placeholder = 'Select country' styles={customStyles} options={options} value={value} onChange={changeHandler} />
+                        <Select placeholder='Select country' styles={customStyles} options={options} value={value} onChange={changeHandler} />
+                    </div>
+                    <div className='flex flex-col gap-1'>
+                        <span>Zip Code</span>
+                        <input className='py-2 rounded-full px-6 bg-[#094074] bg-opacity-10 outline-none focus:border-2 focus:border-[#094074]' type="text" />
                     </div>
                 </form>
             </div>
