@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 import { RiArrowDropDownLine } from 'react-icons/ri';
+import CoverageLocations from './sellerComponents/CoverageLocactions';
 
 const AddService = () => {
     const [open, setOpen] = useState(false);
     const [category, setCategory] = useState('Category');
     const [isFocused, setIsFocused] = useState(false);
+
     return (
         <div className='z-20 bg-white'>
             <div className='flex justify-between items-center border-b pb-4'>
@@ -46,13 +48,7 @@ const AddService = () => {
                         <input className='py-2 rounded-full px-6 bg-[#094074] bg-opacity-10 outline-none focus:border-2 focus:border-[#094074]' type="text" placeholder='Taka' />
                     </div>
 
-                    <div className='flex flex-col gap-1'>
-                        <span>Service Area</span>
-                        <input onFocus={() => setIsFocused(true)} onBlur={() => setIsFocused(false)} className='py-2 rounded-full px-6 bg-[#094074] bg-opacity-10 outline-none focus:border-2 focus:border-[#094074]' type="text" placeholder='Type area' />
-                        <div className={`bg-white shadow-lg w-full rounded-b-lg h-24 ${isFocused ? 'block' : 'hidden'}`}>
-
-                        </div>
-                    </div>
+                    <CoverageLocations isFocused = {isFocused} setIsFocused={setIsFocused}></CoverageLocations>
                 </form>
             </div>
         </div>
