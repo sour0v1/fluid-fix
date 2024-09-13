@@ -6,8 +6,8 @@ const Dashboard = () => {
     const [route, setRoute] = useState('Dashboard');
     const [up, setUp] = useState(false);
     return (
-        <div className='grid lg:grid-cols-12 lg:my-9 font-poppins relative'>
-            <button onClick={() => setUp(!up)} className='lg:hidden py-3 text-center bg-[#094074] text-white flex justify-center items-center gap-6 border-y border-white h-16 z-40'>
+        <div className='lg:grid lg:grid-cols-12 lg:my-9 font-poppins relative'>
+            <button onClick={() => setUp(!up)} className='lg:hidden py-3 text-center bg-[#094074] text-white flex justify-center items-center gap-6 border-y border-white h-16 z-40 w-full'>
                 <span>{route}</span>
                 {
                     !up ?

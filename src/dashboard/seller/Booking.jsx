@@ -3,6 +3,7 @@ import { AiOutlineFileDone } from 'react-icons/ai';
 import { CiCircleRemove } from 'react-icons/ci';
 import { IoMdDoneAll } from 'react-icons/io';
 import { MdPendingActions } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 const Booking = () => {
     return (
@@ -33,6 +34,39 @@ const Booking = () => {
                         <span className='text-2xl p-2 rounded-full bg-[#FB7793] inline-block text-white'><CiCircleRemove /></span>
                         <h4 className='font-bold text-xl'>2</h4>
                         <span className='inline-block'>Cancelled</span>
+                    </div>
+                </div>
+            </div>
+
+            <div className='shadow rounded-md py-3'>
+                <h3 className='font-semibold text-[#094074] px-6'>Booking Overview</h3>
+                <div className='w-full text-[#094074] my-6 space-y-6 lg:px-6 overflow-x-scroll lg:overflow-x-auto lg:w-full'>
+                    <div className=''>
+                        <table className=''>
+                            <thead>
+                                <tr className=''>
+                                    <th className='px-6 border-y py-2 bg-[#094074] bg-opacity-5 text-sm'>Customer Name</th>
+                                    <th className='px-6 border-y py-2 bg-[#094074] bg-opacity-5 text-sm'>Service Type</th>
+                                    <th className='px-6 border-y py-2 bg-[#094074] bg-opacity-5 text-sm'>Location</th>
+                                    <th className='px-6 border-y py-2 bg-[#094074] bg-opacity-5 text-sm'>Service Date</th>
+                                    <th className='px-6 border-y py-2 bg-[#094074] bg-opacity-5 text-sm'>Status</th>
+                                    <th className='px-6 border-y py-2 bg-[#094074] bg-opacity-5 text-sm'>View Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td className='px-6 py-2 border-b'>Mr Das</td>
+                                    <td className='px-6 py-2 border-b'>Plumbing</td>
+                                    <td className='px-6 py-2 border-b'>Dhaka</td>
+                                    <td className='px-6 py-2 border-b'>16th September</td>
+                                    <td className='px-6 py-2 border-b'>Pending</td>
+                                    <td className='px-6 py-2 border-b underline'>
+                                        <Link>View</Link>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
                     </div>
                 </div>
             </div>
