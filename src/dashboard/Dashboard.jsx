@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import { NavLink, Outlet } from 'react-router-dom';
-
+import './Dashboard.css'
 const Dashboard = () => {
     const [route, setRoute] = useState('Dashboard');
     const [up, setUp] = useState(false);
@@ -15,14 +15,14 @@ const Dashboard = () => {
                         <span className='text-xl'><IoIosArrowUp /></span>
                 }
             </button>
-            <div className={`lg:col-span-3 text-center lg:text-left p-6  bg-opacity-100 lg:bg-opacity-10 flex flex-col gap-4 absolute lg:static w-full z-30 text-[#094074]  bg-white lg:bg-[#094074]  left-0 top-16 transition transform duration-300 rounded-b-lg lg:rounded-b-none ${up ? 'translate-y-0' : '-translate-y-[1000px] lg:translate-y-0'}`}>
-                <NavLink className={'hover:bg-[#094074] hover:bg-opacity-10 lg:hover:bg-white py-2 pl-3 transform hover:scale-105 hover:transition-transform duration-300'}>Dashboard</NavLink>
+            <div id='dashboard' className={`lg:col-span-3 text-center lg:text-left p-6  bg-opacity-100 lg:bg-opacity-10 flex flex-col gap-4 absolute lg:static w-full z-30 text-[#094074]  bg-white lg:bg-[#094074]  left-0 top-16 transition transform duration-300 rounded-b-lg lg:rounded-b-none ${up ? 'translate-y-0' : '-translate-y-[1000px] lg:translate-y-0'}`}>
+                <NavLink to={'/dashboard/seller/home'} className={'hover:bg-[#094074] hover:bg-opacity-10 lg:hover:bg-white py-2 pl-3 transform hover:scale-105 hover:transition-transform duration-300'}>Dashboard</NavLink>
                 <NavLink to={'/dashboard/seller/add-service'} className={'hover:bg-[#094074] hover:bg-opacity-10 lg:hover:bg-white py-2 pl-3 transform hover:scale-105 hover:transition-transform duration-300'}>Add service</NavLink>
                 <NavLink to={'/dashboard/seller/my-services'} className={'hover:bg-[#094074] hover:bg-opacity-10 lg:hover:bg-white py-2 pl-3 transform hover:scale-105 hover:transition-transform duration-300'}>My Services</NavLink>
-                <NavLink className={'hover:bg-[#094074] hover:bg-opacity-10 lg:hover:bg-white py-2 pl-3 transform hover:scale-105 hover:transition-transform duration-300'}>Booking</NavLink>
-                <NavLink className={'hover:bg-[#094074] hover:bg-opacity-10 lg:hover:bg-white py-2 pl-3 transform hover:scale-105 hover:transition-transform duration-300'}>Earning</NavLink>
+                <NavLink to={'/dashboard/seller/booking'}  className={'hover:bg-[#094074] hover:bg-opacity-10 lg:hover:bg-white py-2 pl-3 transform hover:scale-105 hover:transition-transform duration-300'}>Booking</NavLink>
+                <NavLink to={'/dashboard/seller/earning'}  className={'hover:bg-[#094074] hover:bg-opacity-10 lg:hover:bg-white py-2 pl-3 transform hover:scale-105 hover:transition-transform duration-300'}>Earning</NavLink>
                 <NavLink to={'/dashboard/seller/profile-info'} className={'hover:bg-[#094074] hover:bg-opacity-10 lg:hover:bg-white py-2 pl-3 transform hover:scale-105 hover:transition-transform duration-300'}>Profile Info</NavLink>
-                <NavLink className={'hover:bg-[#094074] hover:bg-opacity-10 lg:hover:bg-white py-2 pl-3 transform hover:scale-105 hover:transition-transform duration-300'}>Log out</NavLink>
+                <button className={'hover:bg-[#094074] hover:bg-opacity-10 lg:hover:bg-white py-2 pl-3 transform hover:scale-105 hover:transition-transform duration-300 text-left'}>Log out</button>
             </div>
             <div className='border lg:col-span-9 p-6 lg:p-9'>
                 <Outlet></Outlet>

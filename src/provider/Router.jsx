@@ -8,6 +8,7 @@ import Dashboard from '../dashboard/Dashboard';
 import ProfileInfo from '../dashboard/seller/ProfileInfo';
 import AddService from '../dashboard/seller/AddService';
 import MyServices from '../dashboard/seller/MyServices';
+import Booking from '../dashboard/seller/Booking';
 
 const router = createBrowserRouter([
     {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
                     {
                         path : 'seller/my-services',
                         element : <MyServices></MyServices>
+                    },
+                    {
+                        path : 'seller/booking',
+                        element : <Booking></Booking>
                     }
                 ]
             }
