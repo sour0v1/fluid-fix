@@ -8,9 +8,9 @@ const MyServices = () => {
                 <h2 className='text-2xl font-semibold text-[#094074]'>My Services</h2>
                 {/* <button className='py-2 px-4 bg-[#094074] text-white rounded-full'>Add</button> */}
             </div>
-            <div className='flex justify-center items-center h-[300px] w-full text-[#094074] my-6 bg-[#094074] bg-opacity-10 shadow-lg'>
-                <img className='w-1/2 h-full' src={image} alt="Image" />
-                <div className='w-1/2 space-y-3 px-6'>
+            <div className='flex flex-col lg:flex-row justify-center items-center lg:h-[300px] w-full text-[#094074] my-6 bg-[#094074] bg-opacity-10 shadow-lg rounded-md'>
+                <img className='lg:w-1/2 h-full rounded-md' src={image} alt="Image" />
+                <div className='lg:w-1/2 space-y-3 px-6 py-6 lg:py-0'>
                     <p className='text-sm font-semibold border-l-2 pl-1 border-[#094074]'>Plumbing</p>
                     <h2 className='text-xl font-semibold'>Plumbing service title</h2>
                     <p>Use a map where the seller can drop pins for the locations they serve. Each pin should correlate to an added location...</p>

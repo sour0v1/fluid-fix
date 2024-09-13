@@ -13,7 +13,7 @@ const Booking = () => {
             </div>
             <div className='w-full text-[#094074] my-6 shadow p-6 space-y-6 rounded-md'>
                 <h3 className='font-semibold text-[#094074]'>Booking Overview</h3>
-                <div className='flex justify-start items-center gap-6'>
+                <div className='flex flex-col lg:flex-row justify-start items-center gap-6'>
                     <div className=' bg-[#F3E7FE] p-4 space-y-2 text-center rounded-lg'>
                         <span className='text-2xl p-2 rounded-full bg-[#C389FF] inline-block text-white'><AiOutlineFileDone /></span>
                         <h4 className='font-bold text-xl'>5</h4>
