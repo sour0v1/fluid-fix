@@ -21,14 +21,15 @@ const CoverageLocations = ({isFocused, setIsFocused}) => {
     }, [query])
 
     return (
-        <div className='flex flex-col gap-1'>
+        <div className='flex flex-col gap-1 relative'>
             <span>Coverage Area Location</span>
             <input onChange={handleQueryChange} onFocus={() => setIsFocused(true)} onBlur={() => setTimeout(() => setIsFocused(false), 100)} className='py-2 rounded-full px-6 bg-[#094074] bg-opacity-10 outline-none focus:border-2 focus:border-[#094074]' value={query} type="text" placeholder='Type area' />
-            <div className={`bg-white shadow-lg w-full rounded-b-lg space-y-4 py-6 ${isFocused ? 'block' : 'hidden'}`}>
+            <div className={`bg-white shadow-lg w-full rounded-b-lg space-y-4 py-6 ${suggestedLocations.length > 0 ? 'h-[300px]' : 'h-fit'} overflow-y-scroll absolute top-20 ${isFocused ? 'block' : 'hidden'}`}>
                 {
-                    suggestedLocations.map(location => 
+                   suggestedLocations.length > 0 ? suggestedLocations.map(location => 
                         <button onClick={() => setQuery(location.display_name)} type='button' className='hover:bg-[#094074] hover:bg-opacity-10 px-6 text-left' key={location.place_id}>{location.display_name}</button>
-                    )
+                    ) :
+                    <p className='px-6 text-center'>Location Not Found</p>
                 }
             </div>
         </div>

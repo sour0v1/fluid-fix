@@ -22,7 +22,7 @@ const AddService = () => {
                     </div>
                     <div className='flex flex-col gap-1'>
                         <span>Service Category</span>
-                        <div className='relative'>
+                        <div className='relative z-30'>
                             <button type='button' onClick={() => setOpen(!open)} className='w-full py-2 rounded-full px-6 bg-[#094074] bg-opacity-10 flex justify-center items-center gap-3'>
                                 <span>{category}</span>
                                 <span className='text-2xl'>{open ?  <IoMdArrowDropup /> :  <IoMdArrowDropdown />}</span>

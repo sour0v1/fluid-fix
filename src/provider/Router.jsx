@@ -7,6 +7,7 @@ import Register from '../pages/register/Register';
 import Dashboard from '../dashboard/Dashboard';
 import ProfileInfo from '../dashboard/seller/ProfileInfo';
 import AddService from '../dashboard/seller/AddService';
+import MyServices from '../dashboard/seller/MyServices';
 
 const router = createBrowserRouter([
     {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
                         path : 'seller/add-service',
                         element : <AddService></AddService>
                     },
+                    {
+                        path : 'seller/my-services',
+                        element : <MyServices></MyServices>
+                    }
                 ]
             }
         ]
