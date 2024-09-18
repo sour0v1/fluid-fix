@@ -39,7 +39,7 @@ const Booking = () => {
             </div>
 
             <div className='shadow rounded-md py-3'>
-                <h3 className='font-semibold text-[#094074] px-6'>Booking Overview</h3>
+                <h3 className='font-semibold text-[#094074] px-6'>Booking List</h3>
                 <div className='w-full text-[#094074] my-6 space-y-6 lg:px-6 overflow-x-scroll lg:overflow-x-auto lg:w-full'>
                     <div className=''>
                         <table className=''>
