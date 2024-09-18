@@ -11,6 +11,7 @@ import MyServices from '../dashboard/seller/MyServices';
 import Booking from '../dashboard/seller/Booking';
 import SellerHome from '../dashboard/seller/SellerHome';
 import Earning from '../dashboard/seller/Earning';
+import About from '../pages/about/About';
 
 const router = createBrowserRouter([
     {
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
                         element : <Earning></Earning>
                     }
                 ]
+            },
+            {
+                path : '/about',
+                element : <About></About>
             }
         ]
 
