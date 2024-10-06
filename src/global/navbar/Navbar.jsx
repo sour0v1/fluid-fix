@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navbar.css';
 import { FiMenu } from 'react-icons/fi';
 import { IoMdClose } from 'react-icons/io';
 import './Navbar.css';
+import { AppContext } from '../../provider/Provider';
 // <FiMenu />
 
 const Navbar = () => {
+    const { user } = useContext(AppContext);
     const [open, setOpen] = useState(false);
     return (
         <div className='w-full bg-[#094074] z-50 relative'>
@@ -17,8 +19,11 @@ const Navbar = () => {
                     <NavLink onClick={() => setOpen(!open)} to={'/'} className='relative hover-underline inline-block'>Home</NavLink>
                     <NavLink onClick={() => setOpen(!open)} to={'/services'} className='relative hover-underline inline-block'>Services</NavLink>
                     <NavLink onClick={() => setOpen(!open)} to={'/about'} className='relative hover-underline inline-block'>About Us</NavLink>
-                    <NavLink onClick={() => setOpen(!open)} to={'/login'} className='relative hover-underline inline-block'>Log in</NavLink>
-                    <NavLink onClick={() => setOpen(!open)} to={'/dashboard'} className='relative hover-underline inline-block'>Dashboard</NavLink>
+                    {
+                        user ?
+                            <NavLink onClick={() => setOpen(!open)} to={'/dashboard/seller/home'} className='relative hover-underline inline-block'>Dashboard</NavLink> :
+                            <NavLink onClick={() => setOpen(!open)} to={'/login'} className='relative hover-underline inline-block'>Log in</NavLink>
+                    }
 
                     <h2 onClick={() => setOpen(!open)} className='absolute top-6 right-9 text-2xl md:hidden lg:hidden text-white bg-white bg-opacity-30 hover:bg-opacity-20'><IoMdClose /></h2>
                 </div>
